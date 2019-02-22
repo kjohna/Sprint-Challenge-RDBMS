@@ -129,6 +129,24 @@ server.put('/api/projects/:id', async (req, res) => {
 });
 
 // PUT update action by id
+server.put('/api/actions/:id', async (req, res) => {
+  const actionId = req.params.id;
+  try {
+    const count = await db('actions')
+      .where({ id: actionId })
+      .update(req.body);
+    if (count > 0) {
+      const updatedAction = await db('actions')
+        .where({ id: actionId })
+        .first();
+      res.status(200).json(updatedAction);
+    } else {
+      res.status(404).json({ message: `No action with id: ${actionId}.`});
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 // DELETE project
 
