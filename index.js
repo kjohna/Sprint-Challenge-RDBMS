@@ -108,6 +108,20 @@ server.get('/api/projects', async (req, res) => {
   }
 });
 
+// GET all actions
+server.get('/api/actions', async (req, res) => {
+  try {
+    const actions = await db('actions');
+    if (actions) {
+      res.status(200).json(actions);
+    } else {
+      res.status(404).json({ message: "No actions found, create one!" })
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 // PUT update project by id
 server.put('/api/projects/:id', async (req, res) => {
   const projId = req.params.id;
