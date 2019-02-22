@@ -94,6 +94,28 @@ server.get('/api/projects/:id', async (req, res) => {
   }
 });
 
+// GET all projects
+server.get('/api/projects', async (req, res) => {
+  try {
+    const projects = await db('projects');
+    if (projects) {
+      res.status(200).json(projects);
+    } else {
+      res.status(404).json({ message: "No projects found, create one!" })
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+// PUT update project by id
+
+// PUT update action by id
+
+// DELETE project
+
+// DELETE action
+
 const port = process.env.PORT || 4040;
 
 server.listen(port, () => console.log(`\n Server listening on ${port}\n`));

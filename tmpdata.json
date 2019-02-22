@@ -1,0 +1,61 @@
+{
+    "id": 1,
+    "name": "finish sprint",
+    "description": "complete sprint tasks, submit",
+    "completed": "false",
+    "actions": [
+        {
+            "id": 1,
+            "description": "finish endpoints",
+            "notes": "write and test endpoints required for MVP",
+            "completed": "false"
+        },
+        {
+            "id": 2,
+            "description": "do some stretch",
+            "notes": "write and test endpoints required for stretch",
+            "completed": "false"
+        },
+        {
+            "id": 5,
+            "description": "push final edits",
+            "notes": "> git push",
+            "completed": "false"
+        },
+        {
+            "id": 6,
+            "description": "complete retrospective",
+            "notes": "follow link to airtable, complete form",
+            "completed": "false"
+        }
+    ]
+}
+
+{
+    "id": 2,
+    "name": "lunch break",
+    "description": "make lunch, eat it",
+    "completed": "false",
+    "actions": [
+        {
+            "id": 3,
+            "description": "make lunch",
+            "notes": "get sandwich ingredients out, assemble",
+            "completed": "false"
+        },
+        {
+            "id": 4,
+            "description": "eat lunch",
+            "notes": "eat sandwich",
+            "completed": "false"
+        }
+    ]
+}
+
+{
+    "id": 3,
+    "name": "exercise",
+    "description": "run",
+    "completed": "false",
+    "actions": []
+}
