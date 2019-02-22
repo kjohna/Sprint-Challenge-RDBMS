@@ -148,9 +148,23 @@ server.put('/api/actions/:id', async (req, res) => {
   }
 });
 
-// DELETE project
-
-// DELETE action
+// DELETE project or action depending on req.params
+server.delete('/api/:table/:id', async (req, res) => {
+  const table = req.params.table;
+  const id = req.params.id;
+  try {
+    const numDeleted = await db(table)
+      .where({ id: id })
+      .del();
+    if (numDeleted > 0) {
+      res.status(204).end();
+    } else {
+      res.status(404).json({ message: `No ${table} item with that id!` });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 const port = process.env.PORT || 4040;
 

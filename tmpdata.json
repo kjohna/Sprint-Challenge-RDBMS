@@ -1,3 +1,18 @@
+{"new proj"}
+{
+	"name": "delete this",
+    "description": "delete this",
+    "completed": "false"
+}
+{"new action"}
+{
+  "description": "wear bike clothes",
+  "notes": "change into bike clothes",
+  "completed": "false"
+}
+
+
+
 {
     "id": 1,
     "name": "finish sprint",
