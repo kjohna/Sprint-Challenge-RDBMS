@@ -59,6 +59,40 @@ server.post('/api/actions', async (req, res) => {
 });
 
 // GET project by id
+server.get('/api/projects/:id', async (req, res) => {
+  const projId = req.params.id;
+  try {
+    const projData = await db('projects')
+      .where({ id: projId})
+      .first();
+    const actionData = await db('actions')
+      .select('id', 'description', 'notes', 'completed')
+      .where({ project_id: projId });
+    const returnData = {
+      ...projData,
+      actions: actionData
+    }
+    res.status(200).json(returnData);
+    // // harder way to format correctly but one hit to db!:
+    // const projData = await db('projects')
+    // .select(db.raw(`
+    //   p.id as projId, 
+    //   p.name as projName, 
+    //   p.description as projDescr, 
+    //   p.completed as projComplete, 
+    //   a.id as actId,
+    //   a.description as actDescr,
+    //   a.notes as actNotes,
+    //   a.completed as actCompleted
+    // `))
+    // .from('projects as p')
+    // .innerJoin('actions as a', 'p.id', '=', 'a.project_id')
+    // .where({ projId: projId });
+    // console.log(projData);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 const port = process.env.PORT || 4040;
 
