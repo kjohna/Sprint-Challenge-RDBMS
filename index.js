@@ -109,6 +109,24 @@ server.get('/api/projects', async (req, res) => {
 });
 
 // PUT update project by id
+server.put('/api/projects/:id', async (req, res) => {
+  const projId = req.params.id;
+  try {
+    const count = await db('projects')
+      .where({ id: projId })
+      .update(req.body);
+    if (count > 0) {
+      const updatedProj = await db('projects')
+        .where({ id: projId })
+        .first();
+      res.status(200).json(updatedProj);
+    } else {
+      res.status(404).json({ message: `No project with id: ${projId}.`});
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 // PUT update action by id
 
