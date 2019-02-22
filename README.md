@@ -29,25 +29,36 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `RDBMS` and `SQL`.
+
+  RDBMS stands for Relational DataBase Management System which is typically a piece of software running on a server. SQL stands for Structured Query Language and is a standard language used to interact with an RDBMS
+
 1. Why do tables need a `primary key`?
+
+  A primary key is necessary for uniquely identifying records in a table. This is important since it is possible that 2 records could share values.
+
 1. What is the name given to a table column that references the primary key on another table.
+
+  Foreign key
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+
+  Another table! Use another table to convert the relationship to two *one to many* relationships.
 
 ## Project Set Up
 
 Follow these steps for starting your project.
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [*] Create a forked copy of this project.
+- [*] Add your project manager as collaborator on Github.
+- [*] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [*] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [*] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [*] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into master (student's Repo). **Please don't merge your own pull request**
-- [ ] Add your project manager as a reviewer on the pull-request
+- [*] Submit a Pull-Request to merge `<firstName-lastName>` Branch into master (student's Repo). **Please don't merge your own pull request**
+- [*] Add your project manager as a reviewer on the pull-request
 - [ ] Your project manager will count the project as complete by merging the branch back into master.
 
 ## Minimum Viable Product
