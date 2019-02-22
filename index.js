@@ -20,14 +20,14 @@ server.get('', (req, res) => {
 
 // POST new project
 server.post('/api/projects', async (req, res) => {
-  const postData = req.body;
-  if(postData.name 
-    && postData.description 
-    && postData.completed) {
+  const projData = req.body;
+  if(projData.name 
+    && projData.description 
+    && projData.completed) {
     try {
-      const [newPostId] = await db('projects')
-        .insert(postData);
-      res.status(200).json({ newProjId: newPostId });
+      const [newProjId] = await db('projects')
+        .insert(projData);
+      res.status(201).json({ newProjId: newProjId });
     } catch (error) {
       const msg = errors[error.errno] || error;
       res.status(500).json({ msg });
@@ -35,9 +35,28 @@ server.post('/api/projects', async (req, res) => {
   } else {
     res.status(400).json({ message: "Please provide complete project data." });
   }
-})
+});
 
 // POST new action
+server.post('/api/actions', async (req, res) => {
+  const actionData = req.body;
+  if(actionData.project_id
+    && actionData.description
+    && actionData.notes
+    && actionData.completed){
+      try {
+        const [newActionId] = await db('actions')
+          .insert(actionData);
+        res.status(201).json({ newActionId: newActionId });
+      } catch (error) {
+        const msg = errors[error.errno] || error;
+        res.status(500).json({ msg });
+      }
+      
+    } else {
+      res.status(400).json({ message: "Please provide complete action data." });
+    }
+});
 
 // GET project by id
 
